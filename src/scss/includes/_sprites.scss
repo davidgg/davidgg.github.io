@@ -1,0 +1,117 @@
+/*
+SCSS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon-home: x y offset_x offset_y width height total_width total_height image_path;
+*/
+$github-x: 100px;
+$github-y: 200px;
+$github-offset-x: -100px;
+$github-offset-y: -200px;
+$github-width: 40px;
+$github-height: 40px;
+$github-total-width: 302px;
+$github-total-height: 300px;
+$github-image: '../img/sprites/sprites.png';
+$github: 100px 200px -100px -200px 40px 40px 302px 300px '../img/sprites/sprites.png';
+$instagram-x: 140px;
+$instagram-y: 200px;
+$instagram-offset-x: -140px;
+$instagram-offset-y: -200px;
+$instagram-width: 40px;
+$instagram-height: 40px;
+$instagram-total-width: 302px;
+$instagram-total-height: 300px;
+$instagram-image: '../img/sprites/sprites.png';
+$instagram: 140px 200px -140px -200px 40px 40px 302px 300px '../img/sprites/sprites.png';
+$me-x: 0px;
+$me-y: 0px;
+$me-offset-x: 0px;
+$me-offset-y: 0px;
+$me-width: 202px;
+$me-height: 200px;
+$me-total-width: 302px;
+$me-total-height: 300px;
+$me-image: '../img/sprites/sprites.png';
+$me: 0px 0px 0px 0px 202px 200px 302px 300px '../img/sprites/sprites.png';
+$medianet-x: 202px;
+$medianet-y: 0px;
+$medianet-offset-x: -202px;
+$medianet-offset-y: 0px;
+$medianet-width: 100px;
+$medianet-height: 100px;
+$medianet-total-width: 302px;
+$medianet-total-height: 300px;
+$medianet-image: '../img/sprites/sprites.png';
+$medianet: 202px 0px -202px 0px 100px 100px 302px 300px '../img/sprites/sprites.png';
+$meetpays-x: 202px;
+$meetpays-y: 100px;
+$meetpays-offset-x: -202px;
+$meetpays-offset-y: -100px;
+$meetpays-width: 100px;
+$meetpays-height: 100px;
+$meetpays-total-width: 302px;
+$meetpays-total-height: 300px;
+$meetpays-image: '../img/sprites/sprites.png';
+$meetpays: 202px 100px -202px -100px 100px 100px 302px 300px '../img/sprites/sprites.png';
+$sweetspot-x: 0px;
+$sweetspot-y: 200px;
+$sweetspot-offset-x: 0px;
+$sweetspot-offset-y: -200px;
+$sweetspot-width: 100px;
+$sweetspot-height: 100px;
+$sweetspot-total-width: 302px;
+$sweetspot-total-height: 300px;
+$sweetspot-image: '../img/sprites/sprites.png';
+$sweetspot: 0px 200px 0px -200px 100px 100px 302px 300px '../img/sprites/sprites.png';
+$twitter-x: 180px;
+$twitter-y: 200px;
+$twitter-offset-x: -180px;
+$twitter-offset-y: -200px;
+$twitter-width: 40px;
+$twitter-height: 40px;
+$twitter-total-width: 302px;
+$twitter-total-height: 300px;
+$twitter-image: '../img/sprites/sprites.png';
+$twitter: 180px 200px -180px -200px 40px 40px 302px 300px '../img/sprites/sprites.png';
+
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  @include sprite-width($icon-home);
+}
+
+.icon-email {
+  @include sprite($icon-email);
+}
+*/
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
