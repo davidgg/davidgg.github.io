@@ -245,7 +245,7 @@ span{
     width: 23%;
     margin-top: 0;
 
-    &:nth-of-type(even){
+    &:nth-of-type(n){
       clear: none;
     }
   }
