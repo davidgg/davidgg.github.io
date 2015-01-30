@@ -1,16 +1,22 @@
 @import "includes/colors";
 @import "includes/space";
 @import "includes/sprites";
+@import "includes/media-query";
 
 /******************HEADER******************/
 body{
-  padding:0;
-  padding-top: 60px;
+  padding: 0;
+  padding-top: $nav-menu-height;
+  width: 100%;
+  min-width: $min-width;
   background-color: $light-color;
   color: $bar-color;
-
+  font-size: 17px;
   font-family: 'Open Sans', sans-serif;
-  font-size: 18px;
+
+  @include small-device {
+    font-size: 18px;
+  }
 }
 header{
   position: relative;
@@ -21,27 +27,27 @@ header{
   right: 0;
 
   width: 100%;
-  height: 60px;
+  height: $nav-menu-height;
   z-index: 10;
 }
 .title-page{
+  display: none;
   position: absolute;
-
-  display: block;
-  height: 60px;
-  width: auto;
-  line-height: 60px;
-
   left: 15px;
 
+  height: $nav-menu-height;
+  width: auto;
+  line-height: $nav-menu-height;
   text-align: center;
 
+  @include mid-device {
+    display: block;
+  }
 }
 nav{
-  line-height: 60px;
+  line-height: $nav-menu-height;
 
-  a,
-  a:visited{
+  a, a:visited{
     color: $light-color;
     text-decoration: none;
   }
@@ -60,6 +66,13 @@ nav{
     text-align: center;
     color: $light-color;
     display: inline;
+
+    &:first-child{
+      padding-left: 0;
+    }
+    &:last-child{
+      padding-right: 0;
+    }
   }
 }
 
@@ -69,7 +82,6 @@ nav{
 .bar{
   background-color: $bar-color;
 }
-
 h1{
   margin: 0;
   font-size:100%;
@@ -84,7 +96,7 @@ section{
   text-align: center;
 }
 span{
-  white-space:nowrap;
+  white-space: nowrap;
   font-weight: bold;
 }
 .centered{
@@ -92,32 +104,33 @@ span{
 
   width: 95%;
   max-width: $max-width;
-  min-width: $min-width;
 }
 .section-container{
-  padding: 70px 0;
+  padding-top: 70px;
+  padding-bottom: 10px;
 
   &:after{
     clear: both;
     content: "";
     display: block;
   }
+  @include small-device {
+    padding-bottom: 70px;
+  }
 }
-
 .separator{
+  height: 1px;
   width: 95%;
   max-width: $max-width;
-  height: 1px;
 
   margin: 10px auto;
 
   background-color: $bar-color;
   opacity: 0.3;
 
-  box-shadow:0 0 5px black;
+  box-shadow: 0 0 5px black;
 }
-.block-separator{
-  height: 300px;
+.sky-separator, .sea-separator{
   width: 100%;
 
   background-position: top right;
@@ -126,57 +139,83 @@ span{
   background-attachment:fixed;
 }
 .sky-separator{
-  @extend .block-separator;
+  height: 200px;
   background-image: url(../img/sky-bk.png);
+
+  @include small-device {
+    height: 300px;
+  }
 }
 .sea-separator{
-  @extend .block-separator;
+  height: 100px;
   background-image: url(../img/sea-bk.png);
+
+  @include small-device {
+    height: 300px;
+  }
 }
 .section-title{
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 50px;
+  font-size: 40px;
+  margin-bottom: 30px;
 
-  margin-bottom: 50px;
+  @include small-device {
+    margin-bottom: 50px;
+    font-size: 50px;
+  }
 }
 /*******************************************/
 
 /***********************ABOUT***************/
 
+.slogan{
+  font-size: 19px;
+
+  @include small-device {
+    font-size: 21px;
+  }
+}
 #about{
   position: relative;
   background-color: $about-color;
   color: white;
-
-  .slogan{
-    font-size: 21px;
-  }
   p{
     margin: 0;
     margin-bottom: 10px;
   }
-  .me-img{
-    @include sprite($me);
-    margin: -210px auto 30px auto;
+}
+.me-img{
+  @include sprite($me);
+  margin: -210px auto 30px auto;
 
-    height: 200px;
-    width: 200px;
+  height: 200px;
+  width: 200px;
 
-    border-radius: 100px;
-    border: 5px solid $about-color;
+  border-radius: 100px;
+  border: 5px solid $about-color;
+}
+.interest-cloud{
+  display: none;
+  float: left;
+  width: 30%;
+  max-width: 200px;
+
+  margin-right: 5%;
+
+  @include small-device {
+    display: block;
   }
-  .interest-cloud{
-    float: left;
-    width: 30%;
-    max-width: 200px;
+}
+.me{
+  float: none;
+  margin: 0 auto;
+  width: 95%;
+  text-align: center;
 
-    margin-right: 5%;
-  }
-  .me{
+  @include small-device {
     float:left;
     width: 65%;
-    max-width: 740px;
     text-align: left;
   }
 }
@@ -184,10 +223,33 @@ span{
 /***********************EXPERIENCE**********/
 .experience{
   float:left;
-  width: 23%;
   padding: 0 1%;
-}
+  width: 98%;
+  margin-top: 30px;
 
+  &:nth-of-type(1){
+    margin-top: 0;
+  }
+  &:nth-of-type(odd){
+    clear: left;
+  }
+
+  @include small-device {
+    width: 48%;
+
+    &:nth-of-type(2){
+      margin-top: 0;
+    }
+  }
+  @include big-device {
+    width: 23%;
+    margin-top: 0;
+
+    &:nth-of-type(even){
+      clear: none;
+    }
+  }
+}
 .logo-img{
   margin:0 auto;
 
@@ -213,7 +275,6 @@ span{
   &.more{
     background: white;
   }
-
   &:hover{
     opacity: 0.4;
   }
@@ -226,12 +287,9 @@ span{
     display: block;
   }
 }
-
-/*******************************************/
-
-
-/***********************WORKS***************/
-.works{
+/**********************************************/
+/***********************projects***************/
+.projects{
   position: relative;
   width: 100%;
   margin-bottom: 30px;
@@ -246,21 +304,17 @@ span{
 
     border: 3px solid $about-color;
   }
-
   h2{
     display: none;
   }
-
-  &.more{
-    h2{
-      display: block;
-    }
+  &:last-child{
+    margin-bottom: 0;
+  }
+  &.more h2{
+    display: block;
   }
 }
-
 /*******************************************/
-
-
 /*****************FOOTER********************/
 footer{
   width: 100%;
@@ -272,8 +326,15 @@ footer{
   margin: 0 auto;
   padding: 10px 0;
 }
-
 .social-icon{
+  float: left;
+  display: block;
+
+  background-repeat: no-repeat;
+  opacity: 0.5;
+
+  margin-right: 10px;
+
   &.twitter{
     @include sprite($twitter);
   }
@@ -284,20 +345,10 @@ footer{
   &.github{
     @include sprite($github);
   }
-
-  float: left;
-  display: block;
-
-  background-repeat: no-repeat;
-  opacity: 0.5;
-
-  margin-right: 10px;
-
   &:hover{
     opacity: 1;
   }
 }
-
 .copyright{
   padding: 10px 0;
   margin: 0;
@@ -307,44 +358,7 @@ footer{
   font-size: 12px;
   color:  $light-color;
   a{
+    white-space: nowrap;
     color:  $light-color;
   }
 }
-/*******************************************/
-
-@media screen and (max-width: 900px) {
-  body{
-    padding-top: 120px;
-  }
-  header{
-    height: 120px;
-  }
-  .title-page{
-    position: relative;
-    left: auto;
-    width: 100%;
-  }
-  .experience {
-    width: 48%;
-  }
-  .meetpays{
-    clear: left;
-  }
-}
-@media screen and (max-width: 500px) {
-  #about{
-    .interest-cloud{
-      display: none;
-    }
-    .me{
-      margin: 0 auto;
-      width: 95%;
-      text-align: center;
-    }
-  }
-  .experience {
-    width: 98%;
-  }
-}
-
-

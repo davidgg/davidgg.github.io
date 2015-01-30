@@ -1,2 +1,10 @@
-$max-width: 960px;
-$min-width: 340px;
+$big-device: 960px;
+$mid-device: 768px;
+$small-device: 460px;
+$extra-small-device: 320px;
+
+$max-width: $big-device;
+$min-width: $extra-small-device;
+
+$nav-menu-height: 60px;
+

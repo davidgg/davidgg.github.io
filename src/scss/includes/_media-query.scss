@@ -1,0 +1,15 @@
+@mixin small-device {
+  @media (min-width: #{$small-device}) {
+    @content;
+  }
+}
+@mixin mid-device {
+  @media (min-width: #{$mid-device}) {
+    @content;
+  }
+}
+@mixin big-device {
+  @media (min-width: #{$big-device}) {
+    @content;
+  }
+}
