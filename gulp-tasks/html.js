@@ -16,7 +16,7 @@ gulp.task('html-min', ['html'], function() {
     collapseWhitespace: true,
     removeComments: true,
     removeScriptTypeAttributes: true,
-    removeOptionalTags: true,
+    removeOptionalTags: false,
     minifyJS: true,
     minifyCSS:true
   }))
