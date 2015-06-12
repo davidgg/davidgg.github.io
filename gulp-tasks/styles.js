@@ -6,6 +6,7 @@ var taskError = sharedConfig.taskError;
 var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
 var streamqueue = require('streamqueue');
+var pngquant = require('imagemin-pngquant');
 
 gulp.task('sass', function() {
   return streamqueue({ objectMode: true },
@@ -25,6 +26,13 @@ gulp.task('sprites', ['sass'], function(){
     imgName: sprites.name,
     imgPath: sprites.destName,
     cssName: sprites.css
+  }))
+  .on('error', taskError)
+  .pipe(plugins.imagemin({
+    progressive: true,
+    optimizationLevel: 2,
+    svgoPlugins: [{removeViewBox: false}],
+    use: [pngquant()]
   }))
   .on('error', taskError)
   .pipe(gulp.dest(sprites.dest));
