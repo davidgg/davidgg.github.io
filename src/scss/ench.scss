@@ -238,8 +238,8 @@ span {
   &.meetpays {
     @include sprite($meetpays);
   }
-  &.medianet {
-    @include sprite($medianet);
+  &.sngular {
+    @include sprite($sngular);
   }
   &.more {
     background: white;
@@ -276,6 +276,12 @@ span {
   }
   &.more h2 {
     display: block;
+  }
+  .work-contact {
+    min-width: 0;
+    width: 150px;
+    height: auto;
+    border: none;
   }
 }
 /*******************************************/

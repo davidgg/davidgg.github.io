@@ -1,1 +1,206 @@
-!function(e){if(e.cookieChoices)return e.cookieChoices;var o=e.document,n="textContent"in o.body,t=function(){function e(e,n,t,i){var l="position:fixed;width:100%;background-color:#eee;margin:0; left:0; top:60px;padding:4px;z-index:1000;text-align:center;",d=o.createElement("div");return d.id=g,d.style.cssText=l,d.appendChild(r(e)),t&&i&&d.appendChild(c(t,i)),d.appendChild(a(n)),d}function t(e,n,t,i){var l="position:fixed;width:100%;height:100%;z-index:999;top:0;left:0;opacity:0.5;filter:alpha(opacity=50);background-color:#ccc;",d="z-index:1000;position:fixed;left:50%;top:50%",p="position:relative;left:-50%;margin-top:-25%;background-color:#fff;padding:20px;box-shadow:4px 4px 25px #888;",s=o.createElement("div");s.id=g;var u=o.createElement("div");u.style.cssText=l;var f=o.createElement("div");f.style.cssText=p;var h=o.createElement("div");h.style.cssText=d;var m=a(n);return m.style.display="block",m.style.textAlign="right",m.style.marginTop="8px",f.appendChild(r(e)),t&&i&&f.appendChild(c(t,i)),f.appendChild(m),h.appendChild(f),s.appendChild(u),s.appendChild(h),s}function i(e,o){n?e.textContent=o:e.innerText=o}function r(e){var n=o.createElement("span");return i(n,e),n}function a(e){var n=o.createElement("a");return i(n,e),n.id=x,n.href="#",n.style.marginLeft="24px",n}function c(e,n){var t=o.createElement("a");return i(t,e),t.href=n,t.target="_blank",t.style.marginLeft="8px",t}function l(){return f(),u(),!1}function d(n,i,r,a,c){if(h()){u();var d=c?t(n,i,r,a):e(n,i,r,a),p=o.createDocumentFragment();p.appendChild(d),o.body.appendChild(p.cloneNode(!0)),o.getElementById(x).onclick=l}}function p(e,o,n,t){d(e,o,n,t,!1)}function s(e,o,n,t){d(e,o,n,t,!0)}function u(){var e=o.getElementById(g);null!=e&&e.parentNode.removeChild(e)}function f(){var e=new Date;e.setFullYear(e.getFullYear()+1),o.cookie=m+"=y; expires="+e.toGMTString()}function h(){return!o.cookie.match(new RegExp(m+"=([^;]+)"))}var m="displayCookieConsent",g="cookieChoiceInfo",x="cookieChoiceDismiss",C={};return C.showCookieConsentBar=p,C.showCookieConsentDialog=s,C}();return e.cookieChoices=t,t}(this),function(){for(var e,o=function(){},n=["assert","clear","count","debug","dir","dirxml","error","exception","group","groupCollapsed","groupEnd","info","log","markTimeline","profile","profileEnd","table","time","timeEnd","timeStamp","trace","warn"],t=n.length,i=window.console=window.console||{};t--;)e=n[t],i[e]||(i[e]=o)}(),function(){"undefined"!=typeof cookieChoices&&cookieChoices.showCookieConsentBar("We use cookies to improve your experience on this website. By continuing to browse our site you agree to our use of cookies.","close message","learn more","/cookies.html")}();
+/*
+ Copyright 2014 Google Inc. All rights reserved.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ */
+
+(function(window) {
+
+  if (!!window.cookieChoices) {
+    return window.cookieChoices;
+  }
+
+  var document = window.document;
+  // IE8 does not support textContent, so we should fallback to innerText.
+  var supportsTextContent = 'textContent' in document.body;
+
+  var cookieChoices = (function() {
+
+    var cookieName = 'displayCookieConsent';
+    var cookieConsentId = 'cookieChoiceInfo';
+    var dismissLinkId = 'cookieChoiceDismiss';
+
+    function _createHeaderElement(cookieText, dismissText, linkText, linkHref) {
+      var butterBarStyles = 'position:fixed;width:100%;background-color:#eee;' +
+          'margin:0; left:0; top:60px;padding:4px;z-index:1000;text-align:center;';
+
+      var cookieConsentElement = document.createElement('div');
+      cookieConsentElement.id = cookieConsentId;
+      cookieConsentElement.style.cssText = butterBarStyles;
+      cookieConsentElement.appendChild(_createConsentText(cookieText));
+
+      if (!!linkText && !!linkHref) {
+        cookieConsentElement.appendChild(_createInformationLink(linkText, linkHref));
+      }
+      cookieConsentElement.appendChild(_createDismissLink(dismissText));
+      return cookieConsentElement;
+    }
+
+    function _createDialogElement(cookieText, dismissText, linkText, linkHref) {
+      var glassStyle = 'position:fixed;width:100%;height:100%;z-index:999;' +
+          'top:0;left:0;opacity:0.5;filter:alpha(opacity=50);' +
+          'background-color:#ccc;';
+      var dialogStyle = 'z-index:1000;position:fixed;left:50%;top:50%';
+      var contentStyle = 'position:relative;left:-50%;margin-top:-25%;' +
+          'background-color:#fff;padding:20px;box-shadow:4px 4px 25px #888;';
+
+      var cookieConsentElement = document.createElement('div');
+      cookieConsentElement.id = cookieConsentId;
+
+      var glassPanel = document.createElement('div');
+      glassPanel.style.cssText = glassStyle;
+
+      var content = document.createElement('div');
+      content.style.cssText = contentStyle;
+
+      var dialog = document.createElement('div');
+      dialog.style.cssText = dialogStyle;
+
+      var dismissLink = _createDismissLink(dismissText);
+      dismissLink.style.display = 'block';
+      dismissLink.style.textAlign = 'right';
+      dismissLink.style.marginTop = '8px';
+
+      content.appendChild(_createConsentText(cookieText));
+      if (!!linkText && !!linkHref) {
+        content.appendChild(_createInformationLink(linkText, linkHref));
+      }
+      content.appendChild(dismissLink);
+      dialog.appendChild(content);
+      cookieConsentElement.appendChild(glassPanel);
+      cookieConsentElement.appendChild(dialog);
+      return cookieConsentElement;
+    }
+
+    function _setElementText(element, text) {
+      if (supportsTextContent) {
+        element.textContent = text;
+      } else {
+        element.innerText = text;
+      }
+    }
+
+    function _createConsentText(cookieText) {
+      var consentText = document.createElement('span');
+      _setElementText(consentText, cookieText);
+      return consentText;
+    }
+
+    function _createDismissLink(dismissText) {
+      var dismissLink = document.createElement('a');
+      _setElementText(dismissLink, dismissText);
+      dismissLink.id = dismissLinkId;
+      dismissLink.href = '#';
+      dismissLink.style.marginLeft = '24px';
+      return dismissLink;
+    }
+
+    function _createInformationLink(linkText, linkHref) {
+      var infoLink = document.createElement('a');
+      _setElementText(infoLink, linkText);
+      infoLink.href = linkHref;
+      infoLink.target = '_blank';
+      infoLink.style.marginLeft = '8px';
+      return infoLink;
+    }
+
+    function _dismissLinkClick() {
+      _saveUserPreference();
+      _removeCookieConsent();
+      return false;
+    }
+
+    function _showCookieConsent(cookieText, dismissText, linkText, linkHref, isDialog) {
+      if (_shouldDisplayConsent()) {
+        _removeCookieConsent();
+        var consentElement = (isDialog) ?
+            _createDialogElement(cookieText, dismissText, linkText, linkHref) :
+            _createHeaderElement(cookieText, dismissText, linkText, linkHref);
+        var fragment = document.createDocumentFragment();
+        fragment.appendChild(consentElement);
+        document.body.appendChild(fragment.cloneNode(true));
+        document.getElementById(dismissLinkId).onclick = _dismissLinkClick;
+      }
+    }
+
+    function showCookieConsentBar(cookieText, dismissText, linkText, linkHref) {
+      _showCookieConsent(cookieText, dismissText, linkText, linkHref, false);
+    }
+
+    function showCookieConsentDialog(cookieText, dismissText, linkText, linkHref) {
+      _showCookieConsent(cookieText, dismissText, linkText, linkHref, true);
+    }
+
+    function _removeCookieConsent() {
+      var cookieChoiceElement = document.getElementById(cookieConsentId);
+      if (cookieChoiceElement != null) {
+        cookieChoiceElement.parentNode.removeChild(cookieChoiceElement);
+      }
+    }
+
+    function _saveUserPreference() {
+      // Set the cookie expiry to one year after today.
+      var expiryDate = new Date();
+      expiryDate.setFullYear(expiryDate.getFullYear() + 1);
+      document.cookie = cookieName + '=y; expires=' + expiryDate.toGMTString();
+    }
+
+    function _shouldDisplayConsent() {
+      // Display the header only if the cookie has not been set.
+      return !document.cookie.match(new RegExp(cookieName + '=([^;]+)'));
+    }
+
+    var exports = {};
+    exports.showCookieConsentBar = showCookieConsentBar;
+    exports.showCookieConsentDialog = showCookieConsentDialog;
+    return exports;
+  })();
+
+  window.cookieChoices = cookieChoices;
+  return cookieChoices;
+})(this);
+
+// Avoid `console` errors in browsers that lack a console.
+(function() {
+    var method;
+    var noop = function () {};
+    var methods = [
+        'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
+        'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log',
+        'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd',
+        'timeStamp', 'trace', 'warn'
+    ];
+    var length = methods.length;
+    var console = (window.console = window.console || {});
+
+    while (length--) {
+        method = methods[length];
+
+        // Only stub undefined methods.
+        if (!console[method]) {
+            console[method] = noop;
+        }
+    }
+}());
+
+
+(function(){
+  if (typeof(cookieChoices) !== 'undefined') {
+    cookieChoices.showCookieConsentBar(
+      'We use cookies to improve your experience on this website. By continuing to browse our site you agree to our use of cookies.',
+      'close message',
+      'learn more',
+      '/cookies.html'
+      );
+  }
+}());
