@@ -1,7 +1,12 @@
+@import "includes/main";
+@import "includes/normalize";
+
 @import "includes/colors";
 @import "includes/space";
-@import "includes/sprites";
+@import "includes/sprite";
 @import "includes/media-query";
+
+@import "cookies";
 
 /******************HEADER******************/
 body {
@@ -127,7 +132,7 @@ span {
 }
 .sky-separator {
   height: 200px;
-  background-image: url('../img/sky-bk.png');
+  background-image: url('/assets/img/sky-bk.png');
 
   @include small-device {
     height: 300px;
@@ -135,7 +140,7 @@ span {
 }
 .sea-separator {
   height: 100px;
-  background-image: url('../img/sea-bk.png');
+  background-image: url('/assets/img/sea-bk.png');
   @include small-device {
     height: 300px;
   }

@@ -14,7 +14,7 @@
  limitations under the License.
  */
 
-(function(window) {
+module.exports = (function() {
 
   if (!!window.cookieChoices) {
     return window.cookieChoices;
@@ -32,7 +32,7 @@
 
     function _createHeaderElement(cookieText, dismissText, linkText, linkHref) {
       var butterBarStyles = 'position:fixed;width:100%;background-color:#eee;' +
-          'margin:0; left:0; top:60px;padding:4px;z-index:1000;text-align:center;';
+        'margin:0; left:0; top:60px;padding:4px;z-index:1000;text-align:center;';
 
       var cookieConsentElement = document.createElement('div');
       cookieConsentElement.id = cookieConsentId;
@@ -48,11 +48,11 @@
 
     function _createDialogElement(cookieText, dismissText, linkText, linkHref) {
       var glassStyle = 'position:fixed;width:100%;height:100%;z-index:999;' +
-          'top:0;left:0;opacity:0.5;filter:alpha(opacity=50);' +
-          'background-color:#ccc;';
+        'top:0;left:0;opacity:0.5;filter:alpha(opacity=50);' +
+        'background-color:#ccc;';
       var dialogStyle = 'z-index:1000;position:fixed;left:50%;top:50%';
       var contentStyle = 'position:relative;left:-50%;margin-top:-25%;' +
-          'background-color:#fff;padding:20px;box-shadow:4px 4px 25px #888;';
+        'background-color:#fff;padding:20px;box-shadow:4px 4px 25px #888;';
 
       var cookieConsentElement = document.createElement('div');
       cookieConsentElement.id = cookieConsentId;
@@ -124,8 +124,8 @@
       if (_shouldDisplayConsent()) {
         _removeCookieConsent();
         var consentElement = (isDialog) ?
-            _createDialogElement(cookieText, dismissText, linkText, linkHref) :
-            _createHeaderElement(cookieText, dismissText, linkText, linkHref);
+          _createDialogElement(cookieText, dismissText, linkText, linkHref) :
+          _createHeaderElement(cookieText, dismissText, linkText, linkHref);
         var fragment = document.createDocumentFragment();
         fragment.appendChild(consentElement);
         document.body.appendChild(fragment.cloneNode(true));
@@ -166,6 +166,5 @@
     return exports;
   })();
 
-  window.cookieChoices = cookieChoices;
-  return cookieChoices;
-})(this);
+  return { cookieChoices: cookieChoices };
+})();
