@@ -1,0 +1,30 @@
+/***********************PROJECTS***************/
+.projects {
+  position: relative;
+  width: 100%;
+  margin-bottom: 30px;
+  text-align: center;
+  img {
+    width: 50%;
+    min-width: 300px;
+    margin: 0 auto;
+    height: auto;
+    border: 3px solid $about-color;
+  }
+  h2 {
+    display: none;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+  &.more h2 {
+    display: block;
+  }
+  .work-contact {
+    min-width: 0;
+    width: 150px;
+    height: auto;
+    border: none;
+  }
+}
+/*******************************************/

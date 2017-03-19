@@ -1,0 +1,68 @@
+/***********************EXPERIENCE**********/
+.experience .section-container > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.experience__item {
+    margin-top: 30px;
+
+    width: 98%;
+    &:nth-child(1) {
+        margin-top: 0;
+    }
+    @include small-device {
+        width: 47%;
+        &:nth-child(2) {
+            margin-top: 0;
+        }
+    }
+    @include big-device {
+        width: 31%;
+        &:nth-child(2) {
+            margin-top: 30px;
+        }
+
+        &.marsbased {
+            width: 98%;
+            margin-top: 0;
+        }
+    }
+}
+.logo-img {
+    margin: 0 auto;
+    max-height: 100px;
+    max-width: 100px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 100px;
+    font-size: 80px;
+    cursor: pointer;
+    &.sweetspot {
+        @include sprite($sweetspot);
+    }
+    &.meetpays {
+        @include sprite($meetpays);
+    }
+    &.sngular {
+        @include sprite($sngular);
+    }
+    &.marsbased {
+        @include sprite($marsbased);
+    }
+    &.more {
+        background: #fff;
+        color: $about-color;
+        border: 3px solid $about-color;
+    }
+    &:hover {
+        opacity: 0.4;
+    }
+    .exp-link {
+        height: 100px;
+        width: 100px;
+        border-radius: 50px;
+        display: block;
+    }
+}
+/**********************************************/

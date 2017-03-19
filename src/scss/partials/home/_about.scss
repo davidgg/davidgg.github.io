@@ -1,0 +1,45 @@
+/***********************ABOUT***************/
+.slogan {
+  font-size: 19px;
+  @include small-device {
+    font-size: 21px;
+  }
+}
+#about {
+  position: relative;
+  background-color: $about-color;
+  color: white;
+  p {
+    margin: 0;
+    margin-bottom: 10px;
+  }
+}
+.me-img {
+  @include sprite($me);
+  margin: -210px auto 30px;
+  height: 200px;
+  width: 200px;
+  border-radius: 100px;
+  border: 5px solid $about-color;
+}
+.interest-cloud {
+  display: none;
+  float: left;
+  width: 30%;
+  max-width: 200px;
+  margin-right: 5%;
+  @include small-device {
+    display: block;
+  }
+}
+.me {
+  float: none;
+  margin: 0 auto;
+  width: 95%;
+  text-align: center;
+  @include small-device {
+    float: left;
+    width: 65%;
+    text-align: left;
+  }
+}
