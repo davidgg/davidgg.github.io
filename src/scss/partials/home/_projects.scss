@@ -4,12 +4,20 @@
   width: 100%;
   margin-bottom: 30px;
   text-align: center;
-  img {
+
+  &__image-container {
     width: 50%;
     min-width: 300px;
     margin: 0 auto;
-    height: auto;
+  }
+  img {
     border: 3px solid $about-color;
+  }
+  .work-contact  {
+    width: 150px;
+    height: auto;
+    border: none;
+    margin: 0;
   }
   h2 {
     display: none;
@@ -19,12 +27,6 @@
   }
   &.more h2 {
     display: block;
-  }
-  .work-contact {
-    min-width: 0;
-    width: 150px;
-    height: auto;
-    border: none;
   }
 }
 /*******************************************/

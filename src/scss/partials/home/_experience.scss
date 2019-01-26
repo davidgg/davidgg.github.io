@@ -39,16 +39,16 @@
     font-size: 80px;
     cursor: pointer;
     &.sweetspot {
-        @include sprite($sweetspot);
+        background-image: url(./../images/sweetspot.png);
     }
     &.meetpays {
-        @include sprite($meetpays);
+        background-image: url(./../images/meetpays.png);
     }
     &.sngular {
-        @include sprite($sngular);
+        background-image: url(./../images/sngular.png);
     }
     &.marsbased {
-        @include sprite($marsbased);
+        background-image: url(./../images/marsbased.png);
     }
     &.more {
         background: #fff;

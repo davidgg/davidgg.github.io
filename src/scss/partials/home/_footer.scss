@@ -20,14 +20,14 @@ footer {
   }
 }
 .tw {
-  @include sprite($twitter);
+  background-image: url(./../images/twitter.png);
 }
 .instg {
-  @include sprite($instagram);
+  background-image: url(./../images/instagram.png);
   margin-right: 0;
 }
 .github {
-  @include sprite($github);
+  background-image: url(./../images/github.png);
 }
 .copyright {
   padding: 10px 0;

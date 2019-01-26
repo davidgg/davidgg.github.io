@@ -15,7 +15,8 @@
   }
 }
 .me-img {
-  @include sprite($me);
+  background-image: url(./../images/me.png);
+  background-position: 0 0;
   margin: -210px auto 30px;
   height: 200px;
   width: 200px;
