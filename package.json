@@ -1,29 +1,39 @@
 {
-  "name": "David.GG",
-  "description": "David García G. Personal Site",
-  "version": "0.3.0",
+  "name": "davidgg.github.io",
+  "private": true,
+  "description": "DavidGG personal site",
+  "version": "0.1.0",
+  "author": "DavidGG <hola@davidgg.es>",
   "scripts": {
-    "start": "npm run clean && webpack-dev-server --content-base ./ --open",
-    "build": "npm run clean && webpack -p",
-    "clean": "rm -rf assets/"
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "start": "npm run develop",
+    "format": "prettier --write \"src/**/*.js\"",
+    "deploy": "gatsby build && gh-pages -d public -b master"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/davidgg/davidgg.github.io.git"
-  },
+  "keywords": [
+    "gatsby",
+    "davidgg"
+  ],
+  "license": "MIT",
   "devDependencies": {
-    "css-loader": "^0.27.2",
-    "extract-text-webpack-plugin": "^2.1.0",
-    "html-webpack-plugin": "^2.28.0",
-    "image-webpack-loader": "^3.2.0",
-    "node-sass": "^4.5.0",
-    "sass-loader": "^6.0.3",
-    "style-loader": "^0.13.2",
-    "webpack": "^2.2.1",
-    "webpack-dev-server": "^2.4.1",
-    "webpack-spritesmith": "^0.3.3"
-  },
-  "dependencies": {
-    "jquery": "^3.1.1"
+    "gh-pages": "^2.0.1",
+    "prettier": "^1.15.2",
+    "@marsbased/marstyle-stylelint": "^0.2.0",
+    "gatsby": "^2.0.76",
+    "gatsby-cli": "^2.4.8",
+    "gatsby-image": "^2.0.20",
+    "gatsby-plugin-manifest": "^2.0.9",
+    "gatsby-plugin-offline": "^2.0.16",
+    "gatsby-plugin-react-helmet": "^3.0.2",
+    "gatsby-plugin-sass": "^2.0.7",
+    "gatsby-plugin-sharp": "^2.0.14",
+    "gatsby-source-filesystem": "^2.0.8",
+    "gatsby-transformer-sharp": "^2.1.8",
+    "node-sass": "^4.11.0",
+    "prop-types": "^15.6.2",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-helmet": "^5.2.0"
   }
 }
