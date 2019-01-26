@@ -95,7 +95,7 @@ export const fluidProjectImage = graphql`
     }
   }
 `;
-export const query = graphql`
+const query = graphql`
   query {
     pleoImage: file(relativePath: { eq: "pleo.png" }) {
       ...fluidProjectImage

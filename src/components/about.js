@@ -39,7 +39,7 @@ export default props => (
   />
 );
 
-export const query = graphql`
+const query = graphql`
   query {
     interests: file(relativePath: { eq: "interests.png" }) {
       childImageSharp {
