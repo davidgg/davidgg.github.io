@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "davidgg.github.io",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "DavidGG personal site",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "DavidGG <hola@davidgg.es>",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
@@ -13,21 +13,14 @@
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "davidgg"
   ],
   "license": "MIT",
   "devDependencies": {
     "gh-pages": "^2.0.1",
-    "prettier": "^1.15.2"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
-  },
-  "dependencies": {
+    "prettier": "^1.15.2",
+    "@marsbased/marstyle-stylelint": "^0.2.0",
     "gatsby": "^2.0.76",
     "gatsby-cli": "^2.4.8",
     "gatsby-image": "^2.0.20",

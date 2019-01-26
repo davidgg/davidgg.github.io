@@ -12,7 +12,9 @@ const Experience = () => (
               href="https://marsbased.com/"
               title="MarsBased site"
               className="exp-link"
-            />
+            >
+              MarsBased
+            </a>
           </div>
           <h2>MarsBased</h2>
           <p className="date">Now</p>
@@ -32,7 +34,9 @@ const Experience = () => (
               href="http://www.sngular.team/"
               title="Sngular Software site"
               className="exp-link"
-            />
+            >
+              Sngular
+            </a>
           </div>
           <h2>s|ngular</h2>
           <p className="date">2015-2016</p>
@@ -53,7 +57,9 @@ const Experience = () => (
               href="http://www.sweetspotintelligence.com/"
               title="Sweetspot Intelligence site"
               className="exp-link"
-            />
+            >
+              Sweetspot
+            </a>
           </div>
           <h2>Sweetspot</h2>
           <p className="date">2014</p>
@@ -74,7 +80,9 @@ const Experience = () => (
               href="https://www.meetpays.com/about"
               title="Meetpays site"
               className="exp-link"
-            />
+            >
+              MeetPays
+            </a>
           </div>
           <h2>MeetPays</h2>
           <p className="date">2013</p>

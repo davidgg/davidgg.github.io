@@ -10,7 +10,7 @@ import '../scss/ench.scss';
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="David GG" keywords={[`davidgg`, `front-end`, `developer`]} />
+    <SEO title="Know me" keywords={[`davidgg`, `front-end`, `developer`]} />
 
     <div className="sky-separator" />
 

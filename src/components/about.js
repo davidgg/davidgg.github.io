@@ -13,7 +13,7 @@ const About = ({ data }) => (
       {/* <img src="images/interests.png" className="interest-cloud" /> */}
       <div className="me">
         <p>
-          Hi! I'm David GG{' '}
+          Hi! I'm David Garmendia{' '}
           <span className="slogan">I love to build amazing products.</span> I'm
           a Software Engineer from Spain, front-end enthusiastic. In the last
           few years I worked for start-up companies with innovative products in

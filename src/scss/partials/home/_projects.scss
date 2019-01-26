@@ -10,23 +10,25 @@
     min-width: 300px;
     margin: 0 auto;
   }
-  img {
-    border: 3px solid $about-color;
-  }
-  .work-contact  {
+
+  .work-contact {
     width: 150px;
     height: auto;
-    border: none;
     margin: 0;
+    border: none;
   }
+
   h2 {
     display: none;
   }
+
   &:last-child {
     margin-bottom: 0;
   }
+
   &.more h2 {
     display: block;
   }
 }
+
 /*******************************************/
