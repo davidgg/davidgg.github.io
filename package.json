@@ -9,8 +9,7 @@
     "develop": "gatsby develop",
     "start": "npm run develop",
     "format": "prettier --write \"src/**/*.js\"",
-    "deploy": "gatsby build && gh-pages -d public",
-    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
+    "deploy": "gatsby build && gh-pages -d public -b master"
   },
   "keywords": [
     "gatsby",
