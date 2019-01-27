@@ -6,8 +6,6 @@ import About from '../components/about';
 import Experience from '../components/experience';
 import Projects from '../components/projects';
 
-import '../scss/ench.scss';
-
 const IndexPage = () => (
   <Layout>
     <SEO title="Know me" keywords={[`davidgg`, `front-end`, `developer`]} />

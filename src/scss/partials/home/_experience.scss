@@ -34,8 +34,8 @@
 }
 
 .logo-img {
-  max-width: 100px;
-  max-height: 100px;
+  width: 100px;
+  height: 100px;
   margin: 0 auto;
   font-size: 80px;
   line-height: 100px;
@@ -43,26 +43,15 @@
   cursor: pointer;
   border-radius: 50%;
 
-  &.sweetspot {
-    background-image: url(./../images/sweetspot.png);
-  }
-
-  &.meetpays {
-    background-image: url(./../images/meetpays.png);
-  }
-
-  &.sngular {
-    background-image: url(./../images/sngular.png);
-  }
-
-  &.marsbased {
-    background-image: url(./../images/marsbased.png);
-  }
-
   &.more {
     color: $about-color;
+    cursor: default;
     background: #fff;
     border: 3px solid $about-color;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 
   &:hover {
@@ -71,10 +60,7 @@
 
   .exp-link {
     display: block;
-    width: 100px;
-    height: 100px;
     font-size: 0;
-    border-radius: 50px;
   }
 }
 

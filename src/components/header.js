@@ -3,7 +3,7 @@ import React from 'react';
 
 const Header = () => (
   <header className="bar">
-    <h1 className="title-page">David Garmendia.</h1>
+    <h1 className="title-page">David Garmendia</h1>
     <nav className="centered">
       <ul>
         <li>

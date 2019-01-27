@@ -1,6 +1,8 @@
 import React from 'react';
+import { StaticQuery, graphql } from 'gatsby';
+import Img from 'gatsby-image';
 
-const Experience = () => (
+const Experience = ({ data }) => (
   <section id="experience" className="experience">
     <div className="section-container centered">
       <h1 className="section-title">Experience</h1>
@@ -13,7 +15,7 @@ const Experience = () => (
               title="MarsBased site"
               className="exp-link"
             >
-              MarsBased
+              <Img fixed={data.marsbased.childImageSharp.fixed} />
             </a>
           </div>
           <h2>MarsBased</h2>
@@ -35,7 +37,7 @@ const Experience = () => (
               title="Sngular Software site"
               className="exp-link"
             >
-              Sngular
+              <Img fixed={data.sngular.childImageSharp.fixed} />
             </a>
           </div>
           <h2>s|ngular</h2>
@@ -58,7 +60,7 @@ const Experience = () => (
               title="Sweetspot Intelligence site"
               className="exp-link"
             >
-              Sweetspot
+              <Img fixed={data.sweetspot.childImageSharp.fixed} />
             </a>
           </div>
           <h2>Sweetspot</h2>
@@ -81,7 +83,7 @@ const Experience = () => (
               title="Meetpays site"
               className="exp-link"
             >
-              MeetPays
+              <Img fixed={data.meetpays.childImageSharp.fixed} />
             </a>
           </div>
           <h2>MeetPays</h2>
@@ -111,4 +113,36 @@ const Experience = () => (
   </section>
 );
 
-export default Experience;
+export default props => (
+  <StaticQuery
+    query={query}
+    render={data => <Experience data={data} {...props} />}
+  />
+);
+
+export const fixedProjectImage = graphql`
+  fragment fixedProjectImage on File {
+    childImageSharp {
+      fixed(quality: 90, width: 100, height: 100) {
+        ...GatsbyImageSharpFixed
+      }
+    }
+  }
+`;
+
+const query = graphql`
+  query {
+    marsbased: file(relativePath: { eq: "marsbased.png" }) {
+      ...fixedProjectImage
+    }
+    sngular: file(relativePath: { eq: "sngular.png" }) {
+      ...fixedProjectImage
+    }
+    sweetspot: file(relativePath: { eq: "sweetspot.png" }) {
+      ...fixedProjectImage
+    }
+    meetpays: file(relativePath: { eq: "meetpays.png" }) {
+      ...fixedProjectImage
+    }
+  }
+`;

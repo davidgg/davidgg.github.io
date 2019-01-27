@@ -4,8 +4,6 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Cookies from '../components/cookies';
 
-import '../scss/ench.scss';
-
 const CookiesPage = () => (
   <Layout>
     <SEO
