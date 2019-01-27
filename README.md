@@ -4,4 +4,4 @@
 
 Generated using [GatsbyJS](https://www.gatsbyjs.org)
 
-Checkout `gatsy` branch to check source code.
+Checkout `gatsby` branch to check source code.
