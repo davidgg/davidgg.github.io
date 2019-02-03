@@ -9,6 +9,12 @@
   width: 98%;
   margin-top: 30px;
 
+  &-desc {
+    max-width: 400px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
   &:nth-child(1) {
     margin-top: 0;
   }

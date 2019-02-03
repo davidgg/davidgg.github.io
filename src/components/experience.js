@@ -20,13 +20,13 @@ const Experience = ({ data }) => (
           </div>
           <h2>MarsBased</h2>
           <p className="date">Now</p>
-          <p className="desc">
+          <p>
             <span>Front-End Developer</span>
           </p>
-          <p className="desc">
+          <p className="experience__item-desc">
             Development consultancy from Barcelona offering{' '}
             <span>end‑to‑end web</span> and <span>mobile apps</span> based on
-            Ruby on Rails and Javascript frameworks.
+            Ruby on Rails and JavaScript frameworks.
           </p>
         </div>
 
@@ -42,10 +42,10 @@ const Experience = ({ data }) => (
           </div>
           <h2>s|ngular</h2>
           <p className="date">2015-2016</p>
-          <p className="desc">
+          <p>
             <span>Front-End Developer</span>
           </p>
-          <p className="desc">
+          <p className="experience__item-desc">
             Spanish company focused in <span>technology consulting</span>.
             Specialists in e-commerce, cloud computing and custom development.
             s|ngular contributed to the creation of the BuyVip platform,{' '}
@@ -65,10 +65,10 @@ const Experience = ({ data }) => (
           </div>
           <h2>Sweetspot</h2>
           <p className="date">2014</p>
-          <p className="desc">
+          <p>
             <span>Full-Stack Developer</span>
           </p>
-          <p className="desc">
+          <p className="experience__item-desc">
             Sweetspot Intelligence is a start-up dedicated to the development of
             a <span>reporting tool</span> that collects data from external
             sources, creating attractive charts and integrating them{' '}
@@ -88,10 +88,10 @@ const Experience = ({ data }) => (
           </div>
           <h2>MeetPays</h2>
           <p className="date">2013</p>
-          <p className="desc">
+          <p>
             <span>Front-End Developer</span>
           </p>
-          <p className="desc">
+          <p className="experience__item-desc">
             Spanish <span>Bitcoin</span> start-up founded with the goal of
             creating innovative products for the Bitcoin market. Its main
             business is Bitcoin <span>trading</span> by use of traditional
@@ -103,7 +103,7 @@ const Experience = ({ data }) => (
           <div className="logo-img more">+</div>
           <h2>More</h2>
           <p className="date">2008-2013</p>
-          <p className="desc">
+          <p className="experience__item-desc">
             I have worked in different areas, including <span>education</span>,{' '}
             <span>government </span> and <span>freelance</span> projects.
           </p>
