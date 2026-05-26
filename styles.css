@@ -126,6 +126,43 @@ h2 {
   font-family: 'Montserrat', sans-serif;
 }
 
+.project-header {
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+@media screen and (min-width: 720px) {
+  .project-header {
+    padding-bottom: 3.25rem;
+  }
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 2rem;
+  color: var(--blue-dark);
+  font-weight: bolder;
+  text-decoration: underline;
+  text-decoration-color: rgba(35, 87, 118, 0.34);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+.back-link::before {
+  content: '< ';
+}
+
+.back-link:hover,
+.back-link:focus {
+  text-decoration-color: var(--blue-dark);
+}
+
+.back-link:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
 .profile-heading {
   max-width: 720px;
   font-weight: bold;
@@ -215,6 +252,53 @@ h2 {
 
 .prose p {
   margin-bottom: 1rem;
+}
+
+.feature-copy {
+  max-width: 720px;
+}
+
+@media screen and (min-width: 960px) {
+  .feature-copy {
+    grid-column: 2;
+  }
+}
+
+.feature-media {
+  margin: 1rem 0 0;
+  text-align: center;
+}
+
+@media screen and (min-width: 960px) {
+  .feature-media {
+    grid-column: 2;
+    margin-top: 1.5rem;
+  }
+}
+
+.feature-media img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+}
+
+.feature-media:not(.feature-media--small) img {
+  width: min(100%, 500px);
+}
+
+.feature-media--small img {
+  width: min(100%, 280px);
+  max-width: 360px;
+}
+
+.feature-media figcaption {
+  max-width: 620px;
+  margin: 0.65rem auto 0;
+  color: var(--sage);
+  font-size: 0.86em;
+  line-height: 1.45;
 }
 
 .feature-section {

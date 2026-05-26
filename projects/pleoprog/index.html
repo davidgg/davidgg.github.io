@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>PleoProg | David GG</title>
+    <meta
+      name="description"
+      content="PleoProg was a graphical tool for creating and editing personalities for the Pleo robotic dinosaur."
+    />
+    <meta name="author" content="David GG" />
+    <meta name="robots" content="index, follow" />
+
+    <link rel="canonical" href="https://davidgg.es/projects/pleoprog/" />
+
+    <meta property="og:title" content="PleoProg | David GG" />
+    <meta property="og:url" content="https://davidgg.es/projects/pleoprog/" />
+    <meta
+      property="og:image"
+      content="https://davidgg.es/projects/pleoprog/pleo.jpg"
+    />
+    <meta
+      property="og:description"
+      content="A graphical tool for creating personalities for the Pleo robot."
+    />
+    <meta property="og:site_name" content="David GG" />
+    <meta property="og:type" content="article" />
+
+    <link rel="icon" href="/img/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="/img/favicon-32.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#content">Skip to content</a>
+    <div class="site-band" aria-hidden="true"></div>
+
+    <main id="content" class="page page--overlap">
+      <header class="project-header">
+        <a class="back-link" href="/">David GG</a>
+
+        <div class="profile-heading">
+          <h1>PleoProg</h1>
+          <p>Pleo robot project</p>
+        </div>
+      </header>
+
+      <section class="content-section">
+        <div class="prose prose--offset">
+          <p class="lead">
+            PleoProg was a graphical tool for creating and editing
+            personalities for the Pleo robotic dinosaur.
+          </p>
+          <p>
+            I built it as a student project at the University of Oviedo, where
+            it received the highest honors distinction, Matrícula de Honor. The
+            goal was to let people without programming or robotics knowledge
+            design a diagram that represented a personality for Pleo to follow.
+          </p>
+          <p>
+            The application translated those diagrams into code executable by
+            the robot, working like a small compiler for a domain-specific
+            language built from the visual diagram and an intermediate XML
+            representation.
+          </p>
+        </div>
+      </section>
+
+      <section class="feature-section" aria-labelledby="what-title">
+        <h2 id="what-title">What It Did</h2>
+        <p>A small authoring environment for robot behavior.</p>
+
+        <div class="prose feature-copy">
+          <p>
+            PleoProg turned robot programming into a visual desktop workflow:
+            users described behavior through diagrams, and the tool generated
+            the files needed to run that behavior on Pleo.
+          </p>
+          <p>
+            Under the hood, the project used the Pleo Development Kit, the
+            official toolkit released by the robot's manufacturer, to produce
+            executable programs and reuse the resources available for enriching
+            Pleo behaviors.
+          </p>
+        </div>
+
+        <figure class="feature-media">
+          <img
+            src="/projects/pleoprog/pleoProgUI.png"
+            alt="PleoProg desktop interface showing a visual behavior diagram"
+            width="627"
+            height="488"
+          />
+          <figcaption>
+            The PleoProg desktop editor, using diagrams to describe robot
+            behavior.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="feature-section" aria-labelledby="why-title">
+        <h2 id="why-title">Why It Matters</h2>
+        <p>A preserved early exploration of visual behavior authoring.</p>
+
+        <div class="prose feature-copy">
+          <p>
+            Pleo already had its own built-in personality, but changing what it
+            did required technical knowledge. PleoProg made that space more
+            approachable, especially for play and education, where visible,
+            friendly results can make programming feel less abstract.
+          </p>
+          <p>
+            Looking back, it sits at an intersection I still care about: tools
+            that make complex systems understandable, interfaces that invite
+            experimentation, and software that gives people more direct control
+            over creative work.
+          </p>
+        </div>
+
+        <figure class="feature-media feature-media--small">
+          <img
+            src="/projects/pleoprog/pleo.jpg"
+            alt="Pleo robotic dinosaur"
+            width="393"
+            height="322"
+          />
+          <figcaption>Pleo, the robotic dinosaur PleoProg targeted.</figcaption>
+        </figure>
+      </section>
+
+      <section class="feature-section" aria-labelledby="materials-title">
+        <h2 id="materials-title">Materials</h2>
+        <p>Project artifacts and references.</p>
+
+        <ul class="link-list">
+          <li>
+            <a href="/projects/pleoprog/PleoProg.pdf">
+              Project report
+            </a>
+            <span>Original project PDF</span>
+          </li>
+          <li>
+            <span>Source code</span>
+            <span>GitHub repository coming soon</span>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <nav aria-label="Social links">
+        <a
+          href="https://github.com/davidgg"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          github
+        </a>
+        <a
+          href="https://linkedin.com/in/davidgg"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          linkedin
+        </a>
+      </nav>
+      <p>&copy; <span id="current-year">2026</span> David GG</p>
+    </footer>
+
+    <script>
+      document.getElementById('current-year').textContent =
+        new Date().getFullYear();
+    </script>
+  </body>
+</html>
